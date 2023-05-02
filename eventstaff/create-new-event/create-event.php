@@ -1,0 +1,159 @@
+<HTML>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <title>建立活動程序完成 #活動人員STAFF 防疫實名登記系統｜蟾蜍共和國Project #STUST #csie109</title>
+    </head>
+
+    <body>
+        <!-- NAV導覽列 -->
+        <nav class="navbar sticky-top navbar-light" style="background-color: #FF8698">
+            <a class="navbar-brand" href="../">防疫實名登記系統 # 活動人員STAFF</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="../../">主頁 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../login_program.php">登入帳號資訊</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../about_this.html">關於本服務</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">STUST CSIE 109-1 《資料庫系統》 </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <?php
+            $server = "localhost";          # MySQL/MariaDB 伺服器
+            $dbuser = "u683395981_RealNameEvent";      # 使用者帳號
+            $dbpassword = "i5tpsLQD8j";     # 使用者密碼
+            $dbname = "u683395981_MyMainSQL";          # 資料庫名稱
+
+            $StaffAccount = $_REQUEST["StaffAccount"];
+            $StaffPassword = $_REQUEST["StaffPassword"];
+
+
+            # 連接 MySQL/MariaDB 資料庫
+            $connection = new mysqli($server, $dbuser, $dbpassword, $dbname);
+            $connection->query("SET NAMES utf8");
+            # 檢查連線是否成功
+            if ($connection->connect_error) {
+            die("連線失敗：" . $connection->connect_error);
+            }
+        ?>
+
+        <div class="container">
+            <!-- NAV功能導覽列 -->
+            <ul class="nav nav-pills nav-fill mt-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="../event-setting">查看現有活動登錄</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active">建立新活動</a>
+                </li>
+            </ul>
+
+            <div class="mt-5">
+                <div class="row align-items-center">
+                <div class="col"></div>
+                <div class="col-8">
+                <?php
+                    date_default_timezone_set('Asia/Taipei');
+                    $EventID = $_REQUEST["EventID"];
+                    $EventName = $_REQUEST["EventName"];
+                    $EventLastTime = $_REQUEST["EventLastTime"];
+                    $EventLastTime = ( substr_replace("$EventLastTime",' ',10,1) . ":00");
+                    $StaffID = $_REQUEST["StaffID"];
+                    $NowTime = date("Y-m-d H:i:s");
+                    $StaffAccount = $_REQUEST["StaffAccount"];
+                    $StaffPassword = $_REQUEST["StaffPassword"];
+
+                    // 登入處理服務
+                    if( $StaffAccount=="" || $StaffPassword=="" ){
+                        header("Location: ../login_program.php?eid=clear"); 
+                        exit;
+                    }
+                    if($EventID==""){
+                        header("Location: ./index.php?eid=noinput"); 
+                        exit;
+                    }
+
+                    # MySQL/MariaDB 指令
+                    $sqlQuery = " INSERT INTO dbFE_EventCreate(EventID,EventName,StaffAccount,EnterLastTime,CreateTime) VALUES('$EventID', '$EventName', '$StaffAccount', '$EventLastTime', '$NowTime'); ";
+                    # 執行 MySQL/MariaDB 指令
+                    if ($result = $connection->query($sqlQuery)) {
+                ?>
+
+                <div class="card" style="width: auto">
+                    <div class="card-body">
+                        <h3 class="card-title text-center"><strong><ion-icon name="checkmark-circle-outline" size="large"></ion-icon></br>新增活動成功</strong></h3>
+                        <div class="card-text mt-3 mb-3">
+
+                            <?php
+                                echo "活動ID: $EventID </br>";
+                                echo "活動名稱: $EventName </br>";
+                                echo "活動截止時間: $EventLastTime </br>";
+                                echo "建立活動者: $StaffAccount </br>";
+                                echo "活動建立時間: $NowTime </br>";
+                            ?>
+
+                            <form class="">
+                                <div class="form-group row">
+                                    <label for="EventURL" class="col-sm-3 col-form-label">活動連結網址: </label>
+                                    <div class="col-sm-9">
+                                        <?php
+                                        # 生成活動連結網址
+                                        echo '<input type="text" class="form-control" id="EventURL" name="EventURL" value="';
+                                        $EventURL = "https://chanyu.info/real-name-submit/public/info-submit/index.php?EventID=".$EventID;
+                                        echo "$EventURL";
+                                        echo '" readonly>';
+                                        ?>
+                                    </div>
+                                    <label for="EventQRcord" class="col-sm-4 col-form-label">活動快速QRcord: </label>
+                                    <div class="col-sm-8">
+                                        <?php
+                                            # 生成活動QRcord
+                                            echo '<img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=';
+                                            echo $EventURL;
+                                            echo '&choe=UTF-8" class="img-fluid" alt="Responsive image">';
+                                        ?>
+                                    </div>
+                                </div>
+                            </form>
+
+
+                        </div>
+                        <a class="btn btn-primary" href="../event-setting" role="button">前往活動管理</a>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col"></div>
+        </div>
+
+        <?php
+            } else {
+            echo "執行失敗：" . $connection->error;
+            }
+            # 關閉 MySQL/MariaDB 連線
+            $connection->close();
+        ?>
+
+
+        <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script> <!-- https://ionicons.com/ SVG圖示圖標 -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    </body>
+
+</HTML>

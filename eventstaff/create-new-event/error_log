@@ -1,0 +1,10 @@
+[11-Jan-2021 06:58:27 UTC] PHP Notice:  Undefined index: StaffAccount in /home/d3o4lqybvqyq/public_html/real-name-submit/eventstaff/create-new-event/index.php on line 14
+[11-Jan-2021 06:58:27 UTC] PHP Notice:  Undefined index: StaffPassword in /home/d3o4lqybvqyq/public_html/real-name-submit/eventstaff/create-new-event/index.php on line 15
+[11-Jan-2021 06:58:27 UTC] PHP Notice:  Undefined index: StaffID in /home/d3o4lqybvqyq/public_html/real-name-submit/eventstaff/create-new-event/index.php on line 16
+[11-Jan-2021 07:11:16 UTC] PHP Notice:  Undefined index: StaffAccount in /home/d3o4lqybvqyq/public_html/real-name-submit/eventstaff/create-new-event/index.php on line 14
+[11-Jan-2021 07:11:16 UTC] PHP Notice:  Undefined index: StaffPassword in /home/d3o4lqybvqyq/public_html/real-name-submit/eventstaff/create-new-event/index.php on line 15
+[11-Jan-2021 07:11:16 UTC] PHP Notice:  Undefined index: StaffID in /home/d3o4lqybvqyq/public_html/real-name-submit/eventstaff/create-new-event/index.php on line 16
+[14-Jan-2021 14:24:25 Asia/Taipei] PHP Notice:  Undefined index: StaffID in /home/d3o4lqybvqyq/public_html/real-name-submit/eventstaff/create-new-event/create-event.php on line 76
+[14-Jan-2021 14:25:32 Asia/Taipei] PHP Notice:  Undefined index: StaffID in /home/d3o4lqybvqyq/public_html/real-name-submit/eventstaff/create-new-event/create-event.php on line 76
+[14-Jan-2021 14:27:30 Asia/Taipei] PHP Notice:  Undefined index: StaffID in /home/d3o4lqybvqyq/public_html/real-name-submit/eventstaff/create-new-event/create-event.php on line 76
+[14-Jan-2021 15:59:10 Asia/Taipei] PHP Notice:  Undefined index: StaffID in /home/d3o4lqybvqyq/public_html/real-name-submit/eventstaff/create-new-event/create-event.php on line 76

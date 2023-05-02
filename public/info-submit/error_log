@@ -1,0 +1,4 @@
+[09-Jan-2021 10:10:33 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/d3o4lqybvqyq/public_html/real-name-submit/public/info-submit/submit-program.php on line 74
+[09-Jan-2021 18:11:38 Asia/Taipei] PHP Notice:  Undefined variable: StaffID in /home/d3o4lqybvqyq/public_html/real-name-submit/public/info-submit/submit-program.php on line 72
+[09-Jan-2021 18:11:38 Asia/Taipei] PHP Notice:  Undefined variable: EventLastTime in /home/d3o4lqybvqyq/public_html/real-name-submit/public/info-submit/submit-program.php on line 72
+[11-Jan-2021 07:01:13 UTC] PHP Notice:  Undefined index: EventID in /home/d3o4lqybvqyq/public_html/real-name-submit/public/info-submit/index.php on line 41
