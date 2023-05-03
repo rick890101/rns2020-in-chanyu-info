@@ -38,7 +38,7 @@
                         <div class="card-body text-center">
                         
                             
-                            <h2 class="card-title mt-5"><ion-icon name="people-sharp" size="large"></ion-icon></p>我是民眾</h2>
+                            <h2 class="card-title mt-5"><ion-icon name="people-sharp" size="large"></ion-icon>我是民眾</h2>
                             <p class="card-text">我要填寫實名登記。</p>
                             <a href="./public" class="btn btn-light mb-5">民眾傳送門</a>
 
@@ -49,7 +49,7 @@
                     <div class="card bg-success text-white text-center mt-3 mb-3" style="width: auto;">
                         <div class="card-body text-center">
                         
-                            <h2 class="card-title mt-5"><ion-icon name="build-outline" size="large"></ion-icon></p>我是活動舉辦方</h2>
+                            <h2 class="card-title mt-5"><ion-icon name="build-outline" size="large"></ion-icon>我是活動舉辦方</h2>
                             <p class="card-text">我要建立活動實名登記、管理實名登記內容。</p>
                             <a href="./eventstaff" class="btn btn-light mb-5">活動管理</a>
 
