@@ -81,9 +81,7 @@
                     setcookie( "StaffAccount", $StaffAccount, time()+3600); 
                     setcookie( "StaffPassword", $StaffPassword, time()+3600);
                 }
-                
 
-                
                 echo ' <div class="card text-center mt-5" style="width: auto;"><div class="card-body"> ';
                 echo ' <h3 class="card-title"><strong>您現已登入</strong></h3> ';
                 echo ' <p class="card-text">';
