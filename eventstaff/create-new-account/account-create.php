@@ -55,8 +55,8 @@
 
                     <?php
                         date_default_timezone_set('Asia/Taipei');
-                        $StaffAccount = $_REQUEST["StaffAccount"];
-                        $StaffPassword = $_REQUEST["StaffPassword"];
+                        $StaffAccount = $_COOKIE["StaffAccount"];
+                        $StaffPassword = $_COOKIE["StaffPassword"];
                         $StaffEmail = $_REQUEST["StaffEmail"];
                         $StaffIP = $_REQUEST["StaffIP"];
                         $NowTime = date("Y-m-d H:i:s");

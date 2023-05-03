@@ -26,8 +26,8 @@
             $dbname = "u683395981_MyMainSQL";          # 資料庫名稱
 
             date_default_timezone_set('Asia/Taipei');
-            $StaffAccount = $_REQUEST["StaffAccount"];
-            $StaffPassword = $_REQUEST["StaffPassword"];
+            $StaffAccount = $_COOKIE["StaffAccount"];
+            $StaffPassword = $_COOKIE["StaffPassword"];
             $EventID = $_REQUEST["eventid"];
             $NowTime = date("Y-m-d H:i:s");
 

@@ -1,3 +1,4 @@
+<?php error_reporting(E_ALL&~E_WARNING); ?>
 <HTML>
 
     <head>
@@ -55,8 +56,8 @@
             <?php
                 $errorID = ""; $StaffAccount = ""; $StaffPassword = ""; 
                 $errorID = $_GET["eid"];
-                $StaffAccount = $_REQUEST["StaffAccount"];
-                $StaffPassword = $_REQUEST["StaffPassword"];
+                $StaffAccount = $_COOKIE["StaffAccount"];
+                $StaffPassword = $_COOKIE["StaffPassword"];
 
                 if( $errorID == "100" ){
                     echo ' <div class="alert alert-danger" role="alert"> ';

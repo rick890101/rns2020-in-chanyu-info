@@ -16,8 +16,8 @@
             $dbpassword = "i5tpsLQD8j";     # 使用者密碼
             $dbname = "u683395981_MyMainSQL";          # 資料庫名稱
 
-            $StaffAccount = $_REQUEST["StaffAccount"];
-            $StaffPassword = $_REQUEST["StaffPassword"];
+            $StaffAccount = $_COOKIE["StaffAccount"];
+            $StaffPassword = $_COOKIE["StaffPassword"];
             # 連接 MySQL/MariaDB 資料庫
             $connection = new mysqli($server, $dbuser, $dbpassword, $dbname);
             $connection->query("SET NAMES utf8");
@@ -131,7 +131,7 @@
                     <label for="exampleInputPassword1">Creater StaffAccount</label>
                     <?php
                         echo '<input type="text" Name="StaffAccount" class="form-control" id="StaffAccount" placeholder="Account" required readonly value="';
-                        echo $StaffAccount = $_REQUEST["StaffAccount"];
+                        echo $StaffAccount = $_COOKIE["StaffAccount"];
                         echo '"> ';
                     ?>
                     <small id="StaffAccount" class="form-text text-muted">此為系統添加，請勿更改。</small>

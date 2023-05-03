@@ -39,8 +39,8 @@
             $dbpassword = "i5tpsLQD8j";     # 使用者密碼
             $dbname = "u683395981_MyMainSQL";          # 資料庫名稱
 
-            $StaffAccount = $_REQUEST["StaffAccount"];
-            $StaffPassword = $_REQUEST["StaffPassword"];
+            $StaffAccount = $_COOKIE["StaffAccount"];
+            $StaffPassword = $_COOKIE["StaffPassword"];
 
 
             # 連接 MySQL/MariaDB 資料庫
@@ -75,8 +75,8 @@
                     $EventLastTime = ( substr_replace("$EventLastTime",' ',10,1) . ":00");
                     $StaffID = $_REQUEST["StaffID"];
                     $NowTime = date("Y-m-d H:i:s");
-                    $StaffAccount = $_REQUEST["StaffAccount"];
-                    $StaffPassword = $_REQUEST["StaffPassword"];
+                    $StaffAccount = $_COOKIE["StaffAccount"];
+                    $StaffPassword = $_COOKIE["StaffPassword"];
 
                     // 登入處理服務
                     if( $StaffAccount=="" || $StaffPassword=="" ){

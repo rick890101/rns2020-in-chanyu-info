@@ -40,8 +40,8 @@
             $dbpassword = "i5tpsLQD8j";     # 使用者密碼
             $dbname = "u683395981_MyMainSQL";          # 資料庫名稱
 
-            $StaffAccount = $_REQUEST["StaffAccount"];
-            $StaffPassword = $_REQUEST["StaffPassword"];
+            $StaffAccount = $_COOKIE["StaffAccount"];
+            $StaffPassword = $_COOKIE["StaffPassword"];
 
             // 登入處理服務
             if( $StaffAccount=="" || $StaffPassword=="" ){

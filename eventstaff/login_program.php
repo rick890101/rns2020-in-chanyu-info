@@ -10,14 +10,22 @@
 
     <body>
         <?php
-            $server = "localhost";          # MySQL/MariaDB 伺服器
-            $dbuser = "u683395981_RealNameEvent";      # 使用者帳號
-            $dbpassword = "i5tpsLQD8j";     # 使用者密碼
-            $dbname = "u683395981_MyMainSQL";          # 資料庫名稱
+            $server = "localhost";                       # MySQL/MariaDB 伺服器
+            $dbuser = "u683395981_RealNameEvent";        # 使用者帳號
+            $dbpassword = "i5tpsLQD8j";                  # 使用者密碼
+            $dbname = "u683395981_MyMainSQL";            # 資料庫名稱
 
-            $StaffAccount = $_REQUEST["StaffAccount"];
-            $StaffPassword = $_REQUEST["StaffPassword"];
+            if(!empty(@$_POST["StaffAccount"])){
+                $StaffAccount = $_POST["StaffAccount"];
+            }else{
+                $StaffAccount = $_COOKIE["StaffAccount"];
+            }
 
+            if(!empty(@$_POST["StaffPassword"])){
+                $StaffPassword = $_POST["StaffPassword"];
+            }else{
+                $StaffPassword = $_COOKIE["StaffPassword"];
+            }
 
             # 連接 MySQL/MariaDB 資料庫
             $connection = new mysqli($server, $dbuser, $dbpassword, $dbname);
@@ -78,8 +86,8 @@
                 }elseif( mysqli_num_rows($result) == 1 ){
                     while ($row = mysqli_fetch_row($result)) {
                     }
-                    setcookie( "StaffAccount", $StaffAccount, time()+3600); 
-                    setcookie( "StaffPassword", $StaffPassword, time()+3600);
+                    setcookie( "StaffAccount", $StaffAccount, time()+3600, "/"); 
+                    setcookie( "StaffPassword", $StaffPassword, time()+3600, "/");
                 }
 
                 echo ' <div class="card text-center mt-5" style="width: auto;"><div class="card-body"> ';
